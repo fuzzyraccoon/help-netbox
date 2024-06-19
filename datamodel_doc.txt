@@ -1,0 +1,125 @@
+Data model challenges for Netbox
+
+In this document, we’ll be detailing the challenges faced when modeling specific network devices in NetBox, along with proposed solutions to model these devices effectively. The devices in question include:
+-	Cisco 7k Series
+-	ACI
+-	Switch Stack
+
+Cisco 7K Series: 
+ 
+Challenge :
+The Nexus 7k series can be partitioned into multiple devices known as Virtual Device Contexts (VDCs). 
+
+Each VDC operates as an independent switch, which complicates the modeling process in NetBox since one physical device is represented as multiple logical entities.
+
+
+
+@startuml
+class PhysicalDevice {
+  +ID: Integer
+  +Model: String
+  +SerialNumber: String
+  +Location: String
+  +Rack: String
+}
+
+class VDC {
+  +ID: Integer
+  +VDCName: String
+  +Role: String
+  +VLANs: List
+  +PhysicalDeviceID: Integer
+}
+
+PhysicalDevice "1" -- "0..*" VDC : contains
+@enduml
+
+
+Solution :	
+To model the Nexus 7k series effectively in NetBox:
+
+1.	Create the physical device in NetBox as a single device entity.
+2.	Represent each VDC as a virtual device context within this physical device.
+3.	Link the VDCs to the physical device to maintain the relationship and dependencies.
+
+This approach allows for accurate representation of the physical and logical structure of the Nexus 7k series in NetBox.
+
+
+
+Cisco ACI
+
+Challenge :
+Cisco ACI uses Application Policy Infrastructure Controllers (APICs) for centralized management, which may not map cleanly to traditional network device roles in NetBox.
+
+
+
+
+Solution :
+To model Cisco ACI in NetBox:
+
+1.	Represent each APIC as a distinct device.
+2.	Assign a specific device role to these APICs, such as "Controller," to differentiate them from other network devices.
+
+This method ensures that APICs are accurately represented in NetBox, allowing for better management and differentiation from standard network devices.
+	
+
+@startuml
+class NetworkDevice {
+  +ID: Integer
+  +Model: String
+  +SerialNumber: String
+  +Location: String
+  +DeviceRole: String
+  +...
+}
+
+class APIC {
+  +ID: Integer
+  +Model: String
+  +SerialNumber: String
+  +IPAddress: String
+  +DeviceRole: String
+}
+
+APIC "0..*" -- "0..*" NetworkDevice : controls
+@enduml
+
+
+
+
+
+Switch Stack:
+
+Challenge :
+A switch stack consists of multiple switches that function as a single logical unit with a shared management IP. However, each switch in the stack has its own interfaces, which complicates the modeling process.
+
+Solution :
+To effectively model a switch stack in NetBox:
+
+1.	Create a Virtual Chassis in NetBox to group all the switches in the stack.
+2.	Designate the switch with the management IP as the Master in this Virtual Chassis.
+
+This setup ensures that the switch stack is represented as a cohesive unit while maintaining the individuality of each switch and its interfaces within the stack.
+
+
+
+@startuml
+class Switch {
+  +ID: Integer
+  +Model: String
+  +SerialNumber: String
+  +Interfaces: List
+  +Location: String
+}
+
+class VirtualChassis {
+  +ID: Integer
+  +Name: String
+  +MasterSwitchID: Integer
+  +MemberSwitches: List
+  +...
+}
+
+Switch "1" -- "0..1" VirtualChassis : isMasterOf
+Switch "0..*" -- "1" VirtualChassis : belongsTo
+@enduml
