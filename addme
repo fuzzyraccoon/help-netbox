@@ -1,0 +1,17 @@
+        commands = [
+            "show version",
+            "show interfaces"
+        ]
+
+        try:
+            output = self.send_command(["show platform status"])
+            if "Invalid input detected" not in output["show platform status"]:
+                commands.append("show platform status")     
+            else:
+                commands.append("show module")
+        except Exception as e:
+            self.logger.warning(f"Unable to execute 'show platform status' on {self.device_name}: {str(e)}")
+            commands.append("show module")
+            
+            self.logger.warning(f"Unable to execute 'show module' on {self.device_name}: {str(e)}")
+
