@@ -1,0 +1,142 @@
+CHDC:
+  CHDC:
+    ZURICH:
+      aci:
+        CHDC1-IN-APC-001:
+          device_tenant: AXA
+          ip: CHDC1-IN-APC-001.noc.intraxa
+        CHDC1-IN-APC-002:
+          device_tenant: AXA
+          ip: CHDC1-IN-APC-002.noc.intraxa
+        CHDC1-PE-APC-001:
+          device_tenant: AXA
+          ip: CHDC1-PE-APC-001.noc.intraxa
+        CHDC1-PE-APC-002:
+          device_tenant: AXA
+          ip: CHDC1-PE-APC-002.noc.intraxa
+        CHDC2-IN-APC-003:
+          device_tenant: AXA
+          ip: CHDC2-IN-APC-003.noc.intraxa
+        CHDC2-IN-APC-021:
+          device_tenant: AXA
+          ip: CHDC2-IN-APC-021.noc.intraxa
+        CHDC2-PE-APC-003:
+          device_tenant: AXA
+          ip: CHDC2-PE-APC-003.noc.intraxa
+        CHDC2-PE-APC-021:
+          device_tenant: AXA
+          ip: CHDC2-PE-APC-021.noc.intraxa
+SEDC:
+  SEDC:
+    CLICHY:
+      aci:
+        SE302-IN-APC-001:
+          device_tenant: AXA
+          ip: SE302-IN-APC-001.noc.intraxa
+        SE302-IN-APC-002:
+          device_tenant: AXA
+          ip: SE302-IN-APC-002.noc.intraxa
+        SE302-PE-APC-001:
+          device_tenant: AXA
+          ip: SE302-PE-APC-001.noc.intraxa
+        SE302-PE-APC-002:
+          device_tenant: AXA
+          ip: SE302-PE-APC-002.noc.intraxa
+      cisco_ios:
+        SE302-AC-SAP-01:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-AC-SAP-01.noc.intraxa
+        SE302-AC-SAP-02:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-AC-SAP-02.noc.intraxa
+        SE302-AC-SOB-01:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-AC-SOB-01.noc.intraxa
+        SE302-DZ-SDM-NOC-01:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-DZ-SDM-NOC-01.noc.intraxa
+        SE302-DZ-SDM-NOC-02:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-DZ-SDM-NOC-02.noc.intraxa
+        SE302-TM-BCA-102:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-TM-BCA-102.noc.intraxa
+        SE302-TM-BCA-103:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-TM-BCA-103.noc.intraxa
+        SE302-TM-BCB-102:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-TM-BCB-102.noc.intraxa
+        SE302-TM-BCB-103:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE302-TM-BCB-103.noc.intraxa
+      cisco_xe:
+        SE302-PS-RTR-11:
+          device_role: router
+          device_tenant: AXA
+          ip: SE302-PS-RTR-11.noc.intraxa
+        SE302-TM-CER-ATT-01:
+          device_role: router
+          device_tenant: AXA
+          ip: SE302-TM-CER-ATT-01.noc.intraxa
+    LOGNES:
+      aci:
+        SE212-IN-APC-003:
+          device_tenant: AXA
+          ip: SE212-IN-APC-003.noc.intraxa
+        SE212-IN-APC-xxx:
+          device_tenant: AXA
+          ip: SE212-IN-APC-xxx.noc.intraxa
+        SE212-PE-APC-003:
+          device_tenant: AXA
+          ip: SE212-PE-APC-003.noc.intraxa
+        SE212-PE-APC-xxx:
+          device_tenant: AXA
+          ip: SE212-PE-APC-xxx.noc.intraxa
+      cisco_ios:
+        SE212-AC-SAP-01:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE212-AC-SAP-01.noc.intraxa
+        SE212-AC-SAP-02:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE212-AC-SAP-02.noc.intraxa
+        SE212-AC-SOB-01:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE212-AC-SOB-01.noc.intraxa
+        SE212-DZ-SDM-NOC-01:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE212-DZ-SDM-NOC-01.noc.intraxa
+        SE212-DZ-SDM-NOC-02:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE212-DZ-SDM-NOC-02.noc.intraxa
+        SE212-TM-BCA-101:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE212-TM-BCA-101.noc.intraxa
+        SE2MF-AC-SOB-03:
+          device_role: switch
+          device_tenant: AXA
+          ip: SE2MF-AC-SOB-03.noc.intraxa
+      cisco_xe:
+        SE212-PS-RTR-11:
+          device_role: router
+          device_tenant: AXA
+          ip: SE212-PS-RTR-11.noc.intraxa
+        SE212-TM-CER-ATT-01:
+          device_role: router
+          device_tenant: AXA
+          ip: SE212-TM-CER-ATT-01.noc.intraxa
